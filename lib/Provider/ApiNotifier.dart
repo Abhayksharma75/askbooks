@@ -53,4 +53,5 @@ class ApiNotifier extends ChangeNotifier {
 
     return DetailModel.fromJson(data);
   }
+  
 }

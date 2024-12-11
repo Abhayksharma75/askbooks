@@ -68,43 +68,29 @@ class BookList extends StatelessWidget {
                             return Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                SizedBox(
-                                  height: constraints.maxHeight / 2,
-                                  child: Stack(
-                                    alignment: Alignment.topCenter,
-                                    children: [
-                                      Container(
-                                        height: constraints.maxHeight / 2.5,
-                                        decoration: BoxDecoration(
-                                            color:
-                                                boxColors[_random.nextInt(7)],
-                                            borderRadius:
-                                                BorderRadius.circular(12)),
-                                      ),
-                                      Positioned(
-                                        top: 0,
-                                        child: Card(
-                                          margin: EdgeInsets.zero,
-                                          shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(12)),
-                                          child: SizedBox(
-                                            child: ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(12),
-                                              child: Image(
-                                                height:
-                                                    constraints.maxHeight / 2,
-                                                width: constraints.maxWidth / 2,
-                                                image: NetworkImage(
-                                                    "${snapshot.data?.items![index].volumeInfo!.imageLinks!.thumbnail}"),
-                                                fit: BoxFit.fill, // use this
-                                              ),
-                                            ),
+                                Container(
+                                  child: SizedBox(
+                                    height: constraints.maxHeight / 2,
+                                    child: Card(
+                                      margin: EdgeInsets.zero,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(12)),
+                                      child: SizedBox(
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(12),
+                                          child: Image(
+                                            height:
+                                                constraints.maxHeight / 2,
+                                            width: constraints.maxWidth / 2,
+                                            image: NetworkImage(
+                                                "${snapshot.data?.items![index].volumeInfo!.imageLinks!.thumbnail}"),
+                                            fit: BoxFit.fill, // use this
                                           ),
                                         ),
-                                      )
-                                    ],
+                                      ),
+                                    ),
                                   ),
                                 ),
                                 Padding(
@@ -136,22 +122,7 @@ class BookList extends StatelessWidget {
                                                     constraints.maxWidth * 0.09,
                                                 fontWeight: FontWeight.bold),
                                       ),
-                                      Container(
-                                        height: constraints.maxHeight * 0.13,
-                                        width: constraints.maxWidth * 0.35,
-                                        alignment: Alignment.center,
-                                        decoration: BoxDecoration(
-                                            color: AppColors.black,
-                                            borderRadius:
-                                                BorderRadius.circular(12)),
-                                        child: Text(
-                                          "\$${snapshot.data?.items![index].volumeInfo?.pageCount}",
-                                          style: TextStyle(
-                                              fontSize:
-                                                  constraints.maxWidth * 0.08,
-                                              color: Colors.white),
-                                        ),
-                                      ),
+                                      
                                     ],
                                   ),
                                 )
