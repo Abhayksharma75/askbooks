@@ -127,7 +127,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                                       OutlinedButton(
                                         onPressed: () async {
                                           Uri url = Uri.parse("${book?.volumeInfo?.previewLink}");
-                                          if (await canLaunchUrl(url)) {
+                                          if (url != null ) {
                                             await launchUrl(url, mode: LaunchMode.externalApplication);
                                           } else {
                                             throw 'Could not launch $url';
