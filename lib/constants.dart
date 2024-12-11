@@ -53,7 +53,7 @@ TextTheme darkTextTheme = TextTheme(
 // Light Theme
 ThemeData lightTheme = ThemeData(
   brightness: Brightness.light,
-  primaryColor: const Color.fromARGB(255, 178, 85, 240),
+  primaryColor: const Color.fromARGB(255, 102, 119, 231),
   scaffoldBackgroundColor: Colors.white,
   textTheme: lightTextTheme
   

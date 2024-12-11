@@ -1,6 +1,6 @@
-
 import 'package:askbooks/Provider/ThemeProvider.dart';
 import 'package:askbooks/presentation/screens/book_list.dart';
+import 'package:askbooks/presentation/screens/search_screen.dart';
 import 'package:askbooks/presentation/widgets/books/adventure_books.dart';
 import 'package:askbooks/presentation/widgets/books/anime_books.dart';
 import 'package:askbooks/presentation/widgets/books/novel.dart';
@@ -34,7 +34,6 @@ class _HomeScreenState extends State<HomeScreen> {
               height: height / 3.8,
               decoration: BoxDecoration(
                 color: Theme.of(context).primaryColor,
-                
               ),
               child: SafeArea(
                 minimum: const EdgeInsets.all(16),
@@ -49,22 +48,13 @@ class _HomeScreenState extends State<HomeScreen> {
                           "Ask Books",
                           style: Theme.of(context).textTheme.titleSmall,
                         ),
-                        Consumer<ThemeProvider>(
-                          builder: (context, themeProvider, child) {
-                            return Switch(
-                              value: themeProvider.isDarkMode,
-                              onChanged: (value) {
-                                themeProvider.toggleTheme();
-                              },
-                            );
-                          },
-                        ),
                       ],
                     ),
                     const Spacer(),
                     InkWell(
                       onTap: () {
-                        // Add search logic here
+                        showSearch(
+                            context: context, delegate: CustomSearchDelegate());
                       },
                       child: Container(
                         padding: const EdgeInsets.all(12),
@@ -74,10 +64,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           borderRadius: BorderRadius.circular(12),
                           border: Border.all(
                             width: 1,
-                            color: Theme.of(context).primaryColorDark,
+                            color: Colors.black,
                           ),
                         ),
-                        child:const Row(
+                        child: const Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: const [
                             Text("Search for Books"),
@@ -86,7 +76,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 8,)
+                    const SizedBox(
+                      height: 8,
+                    )
                   ],
                 ),
               ),
