@@ -70,24 +70,18 @@ class BookList extends StatelessWidget {
                               children: [
                                 Container(
                                   child: SizedBox(
-                                    height: constraints.maxHeight / 2,
-                                    child: Card(
-                                      margin: EdgeInsets.zero,
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(12)),
-                                      child: SizedBox(
-                                        child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(12),
-                                          child: Image(
-                                            height:
-                                                constraints.maxHeight / 2,
-                                            width: constraints.maxWidth / 2,
-                                            image: NetworkImage(
-                                                "${snapshot.data?.items![index].volumeInfo!.imageLinks!.thumbnail}"),
-                                            fit: BoxFit.fill, // use this
-                                          ),
+                                    height: constraints.maxHeight / 1.5,
+                                    child: ClipRRect(
+                                      borderRadius:
+                                          BorderRadius.circular(12),
+                                      child: Center(
+                                        child: Image(
+                                          height:
+                                              constraints.maxHeight / 1.5,
+                                          width: constraints.maxWidth / 2,
+                                          image: NetworkImage(
+                                              "${snapshot.data?.items![index].volumeInfo!.imageLinks!.thumbnail}"),
+                                          fit: BoxFit.fill, // use this
                                         ),
                                       ),
                                     ),
@@ -95,35 +89,37 @@ class BookList extends StatelessWidget {
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.all(5.0),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "${snapshot.data?.items![index].volumeInfo!.authors?.length != 0 ? snapshot.data?.items![index].volumeInfo!.authors![0] : "Not Found"}",
-                                        maxLines: 1,
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .headlineSmall
-                                            ?.copyWith(
-                                              fontSize:
-                                                  constraints.maxWidth * 0.09,
-                                            ),
-                                      ),
-                                      Text(
-                                        "${snapshot.data?.items![index].volumeInfo?.title}",
-                                        maxLines: 2,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .headlineSmall
-                                            ?.copyWith(
+                                  child: Center(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          "${snapshot.data?.items![index].volumeInfo!.authors?.length != 0 ? snapshot.data?.items![index].volumeInfo!.authors![0] : "Not Found"}",
+                                          maxLines: 1,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .headlineSmall
+                                              ?.copyWith(
                                                 fontSize:
                                                     constraints.maxWidth * 0.09,
-                                                fontWeight: FontWeight.bold),
-                                      ),
-                                      
-                                    ],
+                                              ),
+                                        ),
+                                        Text(
+                                          "${snapshot.data?.items![index].volumeInfo?.title}",
+                                          maxLines: 2,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .headlineSmall
+                                              ?.copyWith(
+                                                  fontSize:
+                                                      constraints.maxWidth * 0.09,
+                                                  fontWeight: FontWeight.bold),
+                                        ),
+                                        
+                                      ],
+                                    ),
                                   ),
                                 )
                               ],
